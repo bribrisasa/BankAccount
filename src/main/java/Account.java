@@ -21,7 +21,11 @@ public class Account {
         return balance;
     }
 
-    public void setBalance(double balance) {
-        this.balance = balance;
+    public void depositMoney(double amount){
+        this.balance+=amount;
+    }
+
+    public void withdrawMoney(double amount){
+        this.balance-=amount;
     }
 }

@@ -12,6 +12,12 @@ public class Bank {
         return this.clients;
     }
 
+    public User newClient(String fname, String lname, int age, String add, String phone){
+        User client = new User(fname,lname,age,add,phone);
+        this.clients.add(client);
+        return client;
+    }
+
     public void addClient(User c){
         this.clients.add(c);
     }

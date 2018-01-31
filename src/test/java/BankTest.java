@@ -13,6 +13,13 @@ public class BankTest {
     }
 
     @Test
+    public void testAddNewClient(){
+        Bank b = new Bank();
+        User u = b.newClient("toto","titi",30,"paris","00");
+        assertThat(b.getAllClients().size()).isEqualTo(1);
+    }
+
+    @Test
     public void testdeleteClient(){
         Bank b = new Bank();
         User c = new User();

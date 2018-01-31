@@ -6,8 +6,7 @@ public class UserTest {
     @Test
     public void testAddAccount(){
         User c = new User();
-        Account acc = new Account();
-        c.openAccount(acc);
+        c.openAccount();
         assertThat(c.getAccounts().size()).isEqualTo(1);
     }
 
@@ -15,7 +14,7 @@ public class UserTest {
     public void testDeleteAccount(){
         User c = new User();
         Account acc = new Account();
-        c.openAccount(acc);
+        c.openAccount();
         c.closeAccount(acc);
         assertThat(c.getAccounts().size()).isEqualTo(0);
     }

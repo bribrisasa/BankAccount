@@ -67,11 +67,15 @@ public class User {
         return accounts;
     }
 
-    public void openAccount(Account a){
+    public Account openAccount(){
+        Account a = new Account();
         this.accounts.add(a);
+        return a;
     }
 
     public void closeAccount(Account a){
         this.accounts.remove(a);
     }
+
+
 }
