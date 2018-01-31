@@ -3,21 +3,19 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Account {
+    private String name;
     private String dateCreation;
     private double balance;
 
-    public Account() {
+
+    public Account(String name) {
         Date actuelle = new Date();
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         this.dateCreation = dateFormat.format(actuelle);
         this.balance = 0;
+        this.name = name;
     }
-
-    public String getDateCreation() {
-        return dateCreation;
-    }
-
-    public double getBalance() {
+    public double getBalance(){
         return balance;
     }
 

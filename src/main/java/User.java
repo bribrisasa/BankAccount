@@ -23,52 +23,18 @@ public class User {
         this.accounts = new ArrayList<Account>();
     }
 
-    public String getFirstName() {
-        return firstName;
-    }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public String getAdress() {
-        return adress;
-    }
-
-    public void setAdress(String adress) {
-        this.adress = adress;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public String infosUser(){
+        return "First Name : "+firstName+"/nLast Name : "+lastName+"/nAge : "+age+"/nAdress : "+adress+"/nPhone : "+phone+"/n";
     }
 
     public List<Account> getAccounts() {
         return accounts;
     }
 
-    public Account openAccount(){
-        Account a = new Account();
+
+    public Account openAccount(String name){
+        Account a = new Account(name);
         this.accounts.add(a);
         return a;
     }
@@ -77,5 +43,10 @@ public class User {
         this.accounts.remove(a);
     }
 
+    public void linkAccount(Account a) { this.accounts.add(a);}
+
+    public double sum(){
+        return accounts.stream().mapToDouble(i->i.getBalance()).sum();
+    }
 
 }

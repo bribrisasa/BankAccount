@@ -28,12 +28,4 @@ public class BankTest {
         assertThat(b.getAllClients().size()).isEqualTo(0);
     }
 
-    @Test
-    public void testUpdateClient(){
-        Bank b = new Bank();
-        User c = new User("toto","",0,"","");
-        b.addClient(c);
-        c.setFirstName("titi");
-        assertThat(b.getClient(c).getFirstName()).isEqualTo("titi");
-    }
 }
