@@ -26,4 +26,8 @@ public class Account {
     public void withdrawMoney(double amount){
         this.balance-=amount;
     }
+
+    public String infosAccount(){
+        return "Account type : "+name+"/nBalance : "+balance+"/n";
+    }
 }

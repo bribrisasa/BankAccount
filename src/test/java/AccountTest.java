@@ -35,4 +35,11 @@ public class AccountTest {
         u.linkAccount(account1);
         assertThat(u.sum()).isEqualTo(30);
     }
+
+    @Test
+    public void testInfoAccount(){
+        Account a = new Account("NameAccount");
+        String s = "Account type : NameAccount/nBalance : 0.0/n";
+        assertThat(a.infosAccount()).isEqualTo(s);
+    }
 }
