@@ -2,4 +2,4 @@
 
 
 JAVA TECHNICAL TEST for NEOLINK
-Sabrina Savani
+Sabrina S.
