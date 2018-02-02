@@ -1,27 +1,43 @@
-import org.junit.jupiter.api.Test;
+
+import com.bank.Account;
+import com.bank.User;
+import org.junit.Before;
+import org.junit.Test;
+
 import static org.assertj.core.api.Assertions.*;
 
 public class AccountTest {
 
+    User client;
+    Account accountZero;
+    Account accountPositif;
+    Account accountNegatif;
+    
+    @Before
+    public void init(){
+        client = new User();
+        accountZero = new Account("zero");
+        accountPositif = new Account("positif");
+        accountNegatif = new Account("negatif");
+
+    }
+
     @Test
     public void testOpenAccount(){
-        Account account = new Account("courant");
-        double b = account.getBalance();
+        double b = accountZero.getBalance();
         assertThat(b).isEqualTo(0);
     }
 
     @Test
     public void testAddMoney(){
-        Account account = new Account("courant");
-        account.depositMoney(10);
-        assertThat(account.getBalance()).isEqualTo(10);
+        accountPositif.depositMoney(10);
+        assertThat(accountPositif.getBalance()).isEqualTo(10);
     }
 
     @Test
     public void testRemoveMoney(){
-        Account account = new Account("courant");
-        account.withdrawMoney(10);
-        assertThat(account.getBalance()).isEqualTo(-10);
+        accountNegatif.withdrawMoney(10);
+        assertThat(accountNegatif.getBalance()).isEqualTo(-10);
     }
 
     @Test
@@ -30,16 +46,15 @@ public class AccountTest {
         Account account1 = new Account("livret");
         account.depositMoney(10);
         account1.depositMoney(20);
-        User u = new User();
-        u.linkAccount(account);
-        u.linkAccount(account1);
-        assertThat(u.sum()).isEqualTo(30);
+
+        client.linkAccount(account);
+        client.linkAccount(account1);
+        assertThat(client.sum()).isEqualTo(30);
     }
 
     @Test
     public void testInfoAccount(){
-        Account a = new Account("NameAccount");
-        String s = "Account type : NameAccount/nBalance : 0.0/n";
-        assertThat(a.infosAccount()).isEqualTo(s);
+        String s = "com.bank.Account type : zero/nBalance : 0.0/n";
+        assertThat(accountZero.infosAccount()).isEqualTo(s);
     }
 }

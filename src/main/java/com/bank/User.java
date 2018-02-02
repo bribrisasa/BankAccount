@@ -1,3 +1,5 @@
+package com.bank;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,19 +36,20 @@ public class User {
 
 
     public Account openAccount(String name){
-        Account a = new Account(name);
-        this.accounts.add(a);
-        return a;
+        Account account = new Account(name);
+        this.accounts.add(account);
+        return account;
     }
 
-    public void closeAccount(Account a){
-        this.accounts.remove(a);
+    public void closeAccount(Account account){
+        this.accounts.remove(account);
     }
 
-    public void linkAccount(Account a) { this.accounts.add(a);}
+    public void linkAccount(Account account) { this.accounts.add(account);}
 
     public double sum(){
         return accounts.stream().mapToDouble(i->i.getBalance()).sum();
     }
+
 
 }

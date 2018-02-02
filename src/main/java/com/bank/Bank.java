@@ -1,3 +1,5 @@
+package com.bank;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,14 +29,14 @@ public class Bank {
     }
 
     public User getClient(User c){
-        for (User u: this.getAllClients())
+        for (User user: this.getAllClients())
               {
-            if(u.equals(c)) return u;
+            if(user.equals(c)) return user;
         }
         return null;
     }
 
-    public void updateClient(User c){
-        User u = this.getClient(c);
+    public void updateClient(User client){
+        User user = this.getClient(client);
     }
 }

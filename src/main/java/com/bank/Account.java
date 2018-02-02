@@ -1,3 +1,5 @@
+package com.bank;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -9,15 +11,16 @@ public class Account {
 
 
     public Account(String name) {
-        Date actuelle = new Date();
+        Date today = new Date();
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        this.dateCreation = dateFormat.format(actuelle);
+        this.dateCreation = dateFormat.format(today);
         this.balance = 0;
         this.name = name;
     }
     public double getBalance(){
         return balance;
     }
+    public String getName(){return name;}
 
     public void depositMoney(double amount){
         this.balance+=amount;
@@ -28,6 +31,6 @@ public class Account {
     }
 
     public String infosAccount(){
-        return "Account type : "+name+"/nBalance : "+balance+"/n";
+        return "com.bank.Account type : "+name+"/nBalance : "+balance+"/n";
     }
 }

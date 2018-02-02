@@ -1,31 +1,41 @@
-import org.junit.jupiter.api.Test;
+import com.bank.Bank;
+import com.bank.User;
+import org.junit.Before;
+import org.junit.Test;
 
-import static org.assertj.core.api.Assertions.*;;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class BankTest {
 
+    User client;
+
+
+    @Before
+    public void init(){
+        client = new User();
+
+    }
     @Test
-    public void testAddClient(){
-        Bank b = new Bank();
-        User c = new User();
-        b.addClient(c);
-        assertThat(b.getAllClients().size()).isEqualTo(1);
+    public void add_existing_client_in_bank(){
+        Bank bank = new Bank();
+
+        bank.addClient(client);
+        assertThat(bank.getAllClients().size()).isEqualTo(1);
     }
 
     @Test
-    public void testAddNewClient(){
-        Bank b = new Bank();
-        User u = b.newClient("toto","titi",30,"paris","00");
-        assertThat(b.getAllClients().size()).isEqualTo(1);
+    public void add_new_client_in_bank(){
+        Bank bank = new Bank();
+        bank.newClient("toto","titi",30,"paris","00");
+        assertThat(bank.getAllClients().size()).isEqualTo(1);
     }
 
     @Test
-    public void testdeleteClient(){
-        Bank b = new Bank();
-        User c = new User();
-        b.addClient(c);
-        b.deleteClient(c);
-        assertThat(b.getAllClients().size()).isEqualTo(0);
+    public void remove_client(){
+        Bank bank = new Bank();
+        bank.addClient(client);
+        bank.deleteClient(client);
+        assertThat(bank.getAllClients().size()).isEqualTo(0);
     }
 
 }
