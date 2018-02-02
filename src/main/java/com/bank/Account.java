@@ -20,7 +20,6 @@ public class Account {
     public double getBalance(){
         return balance;
     }
-    public String getName(){return name;}
 
     public void depositMoney(double amount){
         this.balance+=amount;
@@ -31,6 +30,6 @@ public class Account {
     }
 
     public String infosAccount(){
-        return "com.bank.Account type : "+name+"/nBalance : "+balance+"/n";
+        return "Account name : "+name+"/nBalance : "+balance+"/n";
     }
 }

@@ -1,5 +1,7 @@
 package com.bank;
 
+import com.bank.User.User;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,15 +30,16 @@ public class Bank {
         this.clients.remove(c);
     }
 
-    public User getClient(User c){
+    public User getClientByName(String name){
         for (User user: this.getAllClients())
               {
-            if(user.equals(c)) return user;
+            if(user.getIdentity().getLastName() == name) return user;
         }
         return null;
     }
 
-    public void updateClient(User client){
-        User user = this.getClient(client);
+    public void updateIdentity(User client, String newName){
+
+        getClientByName(client.getIdentity().getLastName()).updateIdentity("titi");
     }
 }

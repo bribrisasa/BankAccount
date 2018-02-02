@@ -1,6 +1,6 @@
 
 import com.bank.Account;
-import com.bank.User;
+import com.bank.User.User;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -23,25 +23,25 @@ public class AccountTest {
     }
 
     @Test
-    public void testOpenAccount(){
+    public void open_account(){
         double b = accountZero.getBalance();
         assertThat(b).isEqualTo(0);
     }
 
     @Test
-    public void testAddMoney(){
+    public void deposit_money(){
         accountPositif.depositMoney(10);
         assertThat(accountPositif.getBalance()).isEqualTo(10);
     }
 
     @Test
-    public void testRemoveMoney(){
+    public void withdraw_money(){
         accountNegatif.withdrawMoney(10);
         assertThat(accountNegatif.getBalance()).isEqualTo(-10);
     }
 
     @Test
-    public void testSumMoney(){
+    public void sum_all_accounts(){
         Account account = new Account("courant");
         Account account1 = new Account("livret");
         account.depositMoney(10);
@@ -53,8 +53,9 @@ public class AccountTest {
     }
 
     @Test
-    public void testInfoAccount(){
-        String s = "com.bank.Account type : zero/nBalance : 0.0/n";
+    public void read_infos_account(){
+        String s = "Account name : zero/nBalance : 0.0/n";
         assertThat(accountZero.infosAccount()).isEqualTo(s);
     }
+
 }
